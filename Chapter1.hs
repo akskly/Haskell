@@ -491,7 +491,7 @@ Implement a function that returns the last digit of a given number.
 -}
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
 lastDigit :: Int -> Int
-lastDigit n = mod (abs(n)) 10
+lastDigit n = mod (abs n) 10
 
 
 {- |
@@ -521,7 +521,7 @@ branches because it is an expression and it must always return some value.
   satisfying the check will be returned and, therefore, evaluated.
 -}
 closestToZero :: Int -> Int -> Int
-closestToZero x y = if abs(x) > abs(y) then y else x  
+closestToZero x y = if abs x > abs y then y else x  
 
 
 {- |
@@ -574,12 +574,7 @@ False
 -}
 isVowel :: Char -> Bool
 isVowel c 
-        | c == 'a' = True
-        | c == 'e' = True
-        | c == 'i' = True
-        | c == 'o' = True
-        | c == 'u' = True
-        | c == 'u' = True
+        | c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u' || c == 'U' || c == 'y' || c == 'Y' = True 
         | otherwise = False 
 
 
@@ -646,8 +641,8 @@ specifying complex expressions.
 sumLast2 :: Int -> Int
 sumLast2 n = a + b
     where
-      a = mod (abs(n)) 10
-      b = mod (div (abs(n)) 10) 10
+      a = mod (abs n) 10
+      b = mod (div (abs n) 10) 10
 
 {- |
 =💣= Task 10*
@@ -667,7 +662,9 @@ You need to use recursion in this task. Feel free to return to it later, if you
 aren't ready for this boss yet!
 -}
 firstDigit :: Int -> Int
-firstDigit n = if div n 10 == 0 then n else firstDigit (div n 10)
+firstDigit n = if div (abs x) 10 == 0 then x else firstDigit (div x 10)
+    where
+      x = abs n
 
 
 {-
